@@ -11,8 +11,13 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "project")
+@Setter
+@Getter
 public class Project {
 
 	@Id

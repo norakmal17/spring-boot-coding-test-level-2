@@ -10,8 +10,13 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "task")
+@Setter
+@Getter
 public class Task {
 
 	@Id
@@ -30,9 +35,13 @@ public class Task {
 	private String status;
 
 	@Column(name = "project_id", nullable = false)
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	private UUID projectId;
 
 	@Column(name = "user_id", nullable = false)
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	private UUID userId;
 
 }
